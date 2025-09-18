@@ -1,0 +1,70 @@
+# Arquivos de comentário e logs gerados pelo Flutter em caso de crash.
+*.log
+flutter_*.log
+
+# ===================================================================
+# ARQUIVOS DE BUILD E COMPILAÇÃO (GERADOS AUTOMATICAMENTE)
+# ===================================================================
+# A pasta 'build' contém o aplicativo compilado (APK, IPA, etc).
+# Ela é gerada toda vez que você executa 'flutter build'.
+/build/
+
+# Arquivos de mapeamento de símbolos de compilação.
+*.map
+
+# ===================================================================
+# DEPENDÊNCIAS E CACHE DO DART/FLUTTER
+# ===================================================================
+# A pasta '.dart_tool' é o cérebro do sistema de build do Dart.
+# Ela é recriada automaticamente ao executar 'flutter pub get'.
+/.dart_tool/
+
+# Arquivos de pacotes obsoletos. O '.dart_tool/' já cuida disso.
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# ===================================================================
+# ARQUIVOS DE IDE E EDITORES DE CÓDIGO
+# ===================================================================
+# Esses arquivos guardam configurações específicas da sua máquina e do seu editor.
+# Cada desenvolvedor terá o seu, então não devem ser compartilhados.
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# ===================================================================
+# ARQUIVOS ESPECÍFICOS DE PLATAFORMA (GERADOS)
+# ===================================================================
+
+# Dependências do macOS (CocoaPods)
+/ios/Pods/
+/ios/Flutter/ephemeral/
+/ios/Flutter/app.framework
+/ios/Flutter/engine.framework
+/ios/.symlinks/
+/ios/Flutter/Generated.xcconfig
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+/ios
+
+# Dependências do macOS (geral)
+/macos/Flutter/ephemeral
+
+# Arquivos gerados pelo Gradle no Android
+/android/gradle
+/android/app/src/main/jniLibs/
+/android/local.properties
+/android/CACHE
+/android/.kotlin
+/android
+
+# ===================================================================
+# ARQUIVOS SENSÍVEIS (EXEMPLO)
+# ===================================================================
+# Se você tiver um arquivo para guardar chaves de API, adicione-o aqui.
+# Exemplo: /lib/secrets.dart
