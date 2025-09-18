@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final tradux = Tradux();
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +39,41 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: tradux.Tradutor.length,
+        itemBuilder: (BuildContext context, int index) {
+          final palavra = tradux.Tradutor[index];
+          return ListTile(
+            leading: const Icon(Icons.translate),
+            title: Text(palavra.portugues),
+            subtitle: Text(palavra.ingles),
+          );
+        },
       ),
       //Items aqui dentro
     );
   }
+}
+
+class Palavra {
+
+  final String portugues;
+  final String ingles;
+
+  Palavra({required this.portugues, required this.ingles});
+}
+
+class Tradux {
+  List<Palavra> Tradutor = [
+    Palavra(portugues:"olá", ingles:"hello"),
+    Palavra(portugues: "adeus", ingles: "goodbye"),
+    Palavra(portugues: "sim", ingles: "yes"),
+    Palavra(portugues: "não", ingles: "no"),
+    Palavra(portugues: "casa", ingles: "home"),
+    Palavra(portugues: "carro", ingles: "car"),
+    Palavra(portugues: "livro", ingles: "book"),
+    Palavra(portugues: "estrada", ingles: "road"),
+    Palavra(portugues: "computador", ingles: "computer"),
+    Palavra(portugues: "código", ingles: "code"),
+  ];
 }
