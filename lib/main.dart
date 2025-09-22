@@ -40,17 +40,39 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView.builder(
-        itemCount: tradux.Tradutor.length,
+        itemCount: tradux.tradutor.length,
         itemBuilder: (BuildContext context, int index) {
-          final palavra = tradux.Tradutor[index];
-          return ListTile(
-            leading: const Icon(Icons.translate),
-            title: Text(palavra.portugues),
-            subtitle: Text(palavra.ingles),
+          final palavra = tradux.tradutor[index];
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: ListTile(
+              title: Text(
+              palavra.foiTraduzido ? palavra.ingles : palavra.portugues,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+              ),
+              trailing: TextButton.icon(
+                style: ButtonStyle(
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(8.0),
+                      side: BorderSide(width: 2.0)
+                    )
+                  )
+                ),
+                label: Text(palavra.foiTraduzido ? 'Português' : 'Traduzir'),
+                onPressed: (){
+                  setState(() {
+                    palavra.foiTraduzido = !palavra.foiTraduzido;
+                  });
+                },
+              ),
+            )
           );
         },
       ),
-      //Items aqui dentro
     );
   }
 }
@@ -59,21 +81,26 @@ class Palavra {
 
   final String portugues;
   final String ingles;
+  bool foiTraduzido;
 
-  Palavra({required this.portugues, required this.ingles});
+  Palavra({
+    required this.portugues,
+    required this.ingles,
+    this.foiTraduzido = false,
+  });
 }
 
 class Tradux {
-  List<Palavra> Tradutor = [
-    Palavra(portugues:"olá", ingles:"hello"),
-    Palavra(portugues: "adeus", ingles: "goodbye"),
-    Palavra(portugues: "sim", ingles: "yes"),
-    Palavra(portugues: "não", ingles: "no"),
-    Palavra(portugues: "casa", ingles: "home"),
-    Palavra(portugues: "carro", ingles: "car"),
-    Palavra(portugues: "livro", ingles: "book"),
-    Palavra(portugues: "estrada", ingles: "road"),
-    Palavra(portugues: "computador", ingles: "computer"),
-    Palavra(portugues: "código", ingles: "code"),
+  List<Palavra> tradutor = [
+    Palavra(portugues:"Olá", ingles:"Hello"),
+    Palavra(portugues: "Adeus", ingles: "Goodbye"),
+    Palavra(portugues: "Sim", ingles: "Yes"),
+    Palavra(portugues: "Não", ingles: "No"),
+    Palavra(portugues: "Casa", ingles: "Home"),
+    Palavra(portugues: "Carro", ingles: "Car"),
+    Palavra(portugues: "Livro", ingles: "Book"),
+    Palavra(portugues: "Estrada", ingles: "Road"),
+    Palavra(portugues: "Computador", ingles: "Computer"),
+    Palavra(portugues: "Código", ingles: "Code"),
   ];
 }
