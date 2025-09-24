@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tradutor de Portugues para Inglês',
+      title: 'Tradutor de Português para Inglês',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Tradutor de Portugues para Inglês'),
+      home: const MyHomePage(title: 'Tradutor de Português para Inglês'),
     );
   }
 }
